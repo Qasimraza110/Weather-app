@@ -7,10 +7,10 @@ function App() {
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(false); 
 
-  // Fetch weather data
+  
   const getWeather = async () => {
     if (!city) return;
-    setLoading(true); // Start loading
+    setLoading(true); 
     try {
       const res = await axios.post("https://dazzling-upliftment-production.up.railway.app/api/weather", { city });
       setWeather(res.data);
@@ -18,16 +18,15 @@ function App() {
     } catch (err) {
       alert("City not found");
     }
-    setLoading(false); // Stop loading
+    setLoading(false); 
   };
 
-  // Fetch recent search history
   const fetchHistory = async () => {
     const res = await axios.get("https://dazzling-upliftment-production.up.railway.app/api/history");
     setHistory(res.data);
   };
 
-  // ✅ Delete a search from history (fixed)
+
   const deleteHistory = async (id) => {
     try {
       await axios.delete(`https://dazzling-upliftment-production.up.railway.app/api/history/${id}`);
@@ -52,7 +51,6 @@ function App() {
           🌦 Weather App
         </h1>
 
-        {/* Input */}
         <div className="flex gap-2">
           <input
             className="border-2 border-blue-300 p-3 flex-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
@@ -71,7 +69,6 @@ function App() {
           </button>
         </div>
 
-        {/* Weather Data */}
         {weather && !loading && (
           <div className="bg-blue-50 p-6 rounded-xl shadow flex flex-col items-center space-y-2 border border-blue-200">
             <h2 className="text-2xl font-bold text-blue-800">{weather.name}</h2>
@@ -85,7 +82,6 @@ function App() {
           </div>
         )}
 
-        {/* Search History */}
         <div>
           <div className="flex items-center justify-between mb-2">
             <h3 className="font-bold text-blue-700 text-lg">Recent Searches</h3>
