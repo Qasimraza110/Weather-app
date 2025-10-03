@@ -4,7 +4,7 @@ import axios from "axios";
 function App() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null);
-  const [history, setHistory] = useState([]);
+  const [history, setHistory] = useState([]); 
   const [loading, setLoading] = useState(false); 
 
   const getWeather = async () => {
