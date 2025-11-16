@@ -5,7 +5,7 @@ function App() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null);
   const [history, setHistory] = useState([]); 
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);  
 
   const getWeather = async () => {
     if (!city) return;
